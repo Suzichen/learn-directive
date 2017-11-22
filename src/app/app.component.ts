@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     styles: [
         `.ng-group {
             margin: 10px auto;
-            border: 1px solid #ddd;
+            background-color: #eee;
         }`, 
         `.card {
             padding: 2rem;
