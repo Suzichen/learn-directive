@@ -1,0 +1,32 @@
+<div class="ng-group">
+    <h2>基础用法</h2>
+    <div>
+        <p testHighlight>不设置颜色，使用指令服务中提供的默认颜色</p>
+    </div>
+    <h2>进阶用法</h2>
+    <div>
+        <input type="radio" name="colors" (click)="color='#2e8b57'" >原谅绿
+        <input type="radio" name="colors" (click)="color='#a62e2e'" >姨妈红
+        <input type="radio" name="colors" (click)="color='#854aa4'" >基佬紫
+        <p [testHighlight]="color">点击上方选择颜色</p>
+        <h3>更加灵活的用法</h3>
+        <div>
+            <p [testHighlight]="color" defaultColor="#d87093">模板中定义defaultColor为少女粉</p>
+            <p [testHighlight]="color" defaultColor="#d87093">但仍然可以通过改变color值来影响</p>
+        </div>
+    </div>
+</div>
+<div class="ng-group">
+    <h2>仿*ngIf</h2>
+    <div>
+        <button (click)="condition=!condition">
+            设置condition为{{condition ? 'false' : 'true'}}
+        </button>
+    </div>
+    <p *testUnless="condition">A段落</p>
+    <p *testUnless="!condition">B段落</p>
+    <h2>延时加载</h2>
+    <div *ngFor="let item of [1,2,3]">
+        <div *testDelay="2000 * item" class="card">第{{item}}张卡片</div>
+    </div>
+</div>
