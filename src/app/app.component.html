@@ -30,3 +30,15 @@
         <div *testDelay="2000 * item" class="card">第{{item}}张卡片</div>
     </div>
 </div>
+<div class="ng-group">
+    <h2>表单校验器</h2>
+    <label>手机号：</label>
+    <input #mobile="ngModel" ngModel mobile placeholder="Mobile">
+    <!-- 检测此项表单是否未通过校验且已被触碰或修改过 -->
+    <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+        <!-- 检测mobile的错误列表是否有mobileValidator -->
+        <div *ngIf="!mobile.errors.mobileValidator">
+            请输入合法的手机号
+        </div>
+    </div>
+</div>
